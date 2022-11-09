@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from 'utils/device';
 
 export const ButtonStyled = styled.button`
   min-width: 150px;
@@ -36,15 +37,28 @@ export const SectionContainer = styled.div`
 `;
 
 export const InputStyled = styled.input`
-  width: 300px;
+  width: 100%;
   padding: 12px 16px;
   border-radius: 4px;
   border: 2px solid rgb(85, 26, 139);
   font-size: 16px;
+  @media ${device.mobile} {
+  }
+  @media ${device.fablet} {
+  }
+  @media ${device.desktop} {
+  } ;
 `;
 
 export const FormStyled = styled.form`
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
+  max-width: 320px;
+  margin: 0 auto;
+
+  @media ${device.fablet} {
+    max-width: 400px;
+  }
 `;

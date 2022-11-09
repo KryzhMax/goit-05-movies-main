@@ -5,6 +5,7 @@ import {
   NavMenu,
   SectionContainer,
   LogoStyled,
+  SpanStyled,
 } from './Navigation.styled';
 
 const Navigation = () => {
@@ -14,9 +15,9 @@ const Navigation = () => {
         <NavMenu>
           <div>
             <LogoStyled to="/">
-              <span role="img" aria-label="computer icon">
+              <SpanStyled role="img" aria-label="computer icon">
                 The movieZz 🎬
-              </span>
+              </SpanStyled>
             </LogoStyled>
           </div>
           <ListStyled>

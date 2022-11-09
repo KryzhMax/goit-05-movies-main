@@ -5,6 +5,7 @@ import useHook from '../../hooks/hooks';
 import { ListStyled } from '../HomePage/Homepage.styled';
 import { ItemStyled, Img, SectionContainer } from './MovieCast.styled';
 import { PStyled } from 'pages/MoviePage/MoviePage.styled';
+import { HStyled } from 'pages/MovieReviews/MovieReviews.styled';
 
 const MovieCast = () => {
   const movieId = useParams();
@@ -12,29 +13,32 @@ const MovieCast = () => {
   const location = useLocation();
 
   return (
-    cast && (
-      <section>
-        <SectionContainer>
-          <Link to={location?.state?.from ?? '/'} />
-          <ListStyled>
-            {cast.map(({ character, profile_path, name }, index) => (
-              <ItemStyled key={index}>
-                <Img
-                  src={`https://image.tmdb.org/t/p/w500${
-                    profile_path === null
-                      ? '/h5oGodvcoq8cyIDTy79yKn4qbey.jpg'
-                      : profile_path
-                  }`}
-                  alt={character}
-                />
-                <PStyled>Character: {character}</PStyled>
-                <PStyled>Name: {name}</PStyled>
-              </ItemStyled>
-            ))}
-          </ListStyled>
-        </SectionContainer>
-      </section>
-    )
+    <>
+      {cast.length === 0 && <HStyled>Guess noone is there...</HStyled>}
+      {cast && (
+        <section>
+          <SectionContainer>
+            <Link to={location?.state?.from ?? '/'} />
+            <ListStyled>
+              {cast.map(({ character, profile_path, name }, index) => (
+                <ItemStyled key={index}>
+                  <Img
+                    src={`https://image.tmdb.org/t/p/w500${
+                      profile_path === null
+                        ? '/h5oGodvcoq8cyIDTy79yKn4qbey.jpg'
+                        : profile_path
+                    }`}
+                    alt={character}
+                  />
+                  <PStyled>Character: {character}</PStyled>
+                  <PStyled>Name: {name}</PStyled>
+                </ItemStyled>
+              ))}
+            </ListStyled>
+          </SectionContainer>
+        </section>
+      )}
+    </>
   );
 };
 

@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import Navigation from '../components/Navigation/Navigation';
 import Spinner from './spinner/Spinner';
 import { Box, BgShapes } from '../pages/HomePage/Homepage.styled';
-import { SectionContainer } from './Navigation/Navigation.styled';
+import { BoxContent } from 'pages/MoviePage/MoviePage.styled';
+// import { SectionContainer } from './Navigation/Navigation.styled';
 
 const SharedLayout = () => {
   return (
@@ -14,11 +15,11 @@ const SharedLayout = () => {
         <BgShapes />
         <Navigation />
         <Suspense fallback={<Spinner />}>
-          <SectionContainer
+          <BoxContent
             style={{ marginTop: '110px', zIndex: '2', overflow: 'auto' }}
           >
             <Outlet />
-          </SectionContainer>
+          </BoxContent>
         </Suspense>
       </Box>
     </>

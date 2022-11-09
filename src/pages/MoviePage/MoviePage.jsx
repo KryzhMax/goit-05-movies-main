@@ -7,9 +7,11 @@ import {
   BtnWrapper,
   ContentWrapper,
   PStyled,
-  SectionContainer,
+  BoxContent,
+  Img,
 } from './MoviePage.styled';
 import { HStyled } from 'pages/MovieReviews/MovieReviews.styled';
+// import { Box } from 'pages/HomePage/Homepage.styled';
 
 const MoviePage = () => {
   const movieId = useParams();
@@ -21,29 +23,29 @@ const MoviePage = () => {
     movie || {};
 
   return (
-    <SectionContainer>
+    <>
       <Btn to={location?.state?.from ?? '/'}>Go back</Btn>
       <ContentWrapper>
-        <SectionContainer>
+        <BoxContent>
           <HStyled>{title}</HStyled>
           <a
             target="_blank"
             href={homepage}
             rel="noreferrer nofollow noreferrer"
           >
-            <img
+            <Img
               src={`https://image.tmdb.org/t/p/w500${
                 backdrop_path === null
                   ? '/h5oGodvcoq8cyIDTy79yKn4qbey.jpg'
                   : backdrop_path
               }`}
               alt={title}
-              width={500}
+              // width={320}
               max-height={500}
             />
           </a>
-        </SectionContainer>
-        <SectionContainer>
+        </BoxContent>
+        <BoxContent>
           <HStyled>
             Genres:
             {genres[0]?.name}, {genres[1]?.name}
@@ -54,7 +56,7 @@ const MoviePage = () => {
           <PStyled>
             <b>Recommended for: {adult ? 'Adults' : 'Kids'}</b>
           </PStyled>
-        </SectionContainer>
+        </BoxContent>
 
         <hr />
       </ContentWrapper>
@@ -69,7 +71,7 @@ const MoviePage = () => {
       <hr />
 
       <Outlet />
-    </SectionContainer>
+    </>
   );
 };
 
